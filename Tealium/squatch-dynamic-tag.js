@@ -5,7 +5,7 @@ window.squatch.ready(function(){
       tenantAlias: 'test_amtbexleynygg'
   });
   var initObj = {
-    engagementMedium: utag.data.engagementMedium,
+    engagementMedium: utag.data.engagementMediumDestination,
     widgetType: 'REFERRER_WIDGET'
   };
 
