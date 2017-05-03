@@ -50,6 +50,8 @@
                 locale: 'en_US'
               }
             };
+            
+            console.log(initObj);
 
             squatch.api().upsertUser(initObj).then(function(response) {
               user = response.user;
