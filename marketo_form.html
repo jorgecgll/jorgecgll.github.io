@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Forms 2.0 Example 4 Test Page</title>
+  </head>
+  <body>
+    <h2>Example 4</h2>
+    <p>Read form field values on form submit</p>
+
+    <script>!function(a,b){a("squatch","https://d2rcp9ak152ke1.cloudfront.net/assets/javascripts/v2/squatch.min.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);</script>
+
+    <script src="//app-sjst.marketo.com/js/forms2/js/forms2.js"></script>
+    <form id="mktoForm_1057"></form>
+    <script>MktoForms2.loadForm("//app-sj14.marketo.com", "785-UHP-775", 1057, function(form){
+        //add an onSubmit handler
+        form.onSubmit(function(){
+          //get the form field values
+          var vals = form.vals();
+          window.squatch.ready(function(){
+
+            console.log(vals.FirstName);
+            console.log(vals.LastName);
+            console.log(vals.Email);
+
+            //configure squatch.js for the tenant you are using
+            squatch.init({
+              tenantAlias: 'test_amtbexleynygg'
+            });
+
+            //object containing the init parameters for squatch.js
+            var initObj = {
+
+              //the object for the user you want to upsert
+              user: {
+                id: vals.Email,
+                accountId: vals.Email,
+                email: vals.Email,
+                firstName: vals.FirstName,
+                lastName: vals.LastName,
+                locale: 'en_US'
+              }
+            };
+
+            squatch.api().upsertUser(initObj).then(function(response) {
+              user = response.user;
+            }).catch(function(error){
+              console.log(error);
+            })
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
