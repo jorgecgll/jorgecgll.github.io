@@ -42,14 +42,14 @@
 
               //the object for the user you want to upsert
               user: {
-                id: vals.Email,
-                accountId: vals.Email,
-                email: vals.Email,
-                firstName: vals.FirstName,
-                lastName: vals.LastName,
                 locale: 'en_US'
               }
             };
+            initObj.user.id = vals.Email,
+            initObj.user.accountId = vals.Email,
+            initObj.user.email = vals.Email,
+            initObj.user.firstName = vals.FirstName,
+            initObj.user.lastName = vals.LastName,
             
             console.log(initObj);
 
