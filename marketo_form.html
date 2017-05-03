@@ -9,8 +9,7 @@
     <h2>Example 4</h2>
     <p>Read form field values on form submit</p>
     
-    <script>!function(a,b){a("squatch","https://unpkg.com/@saasquatch/squatch-js/dist/squatch.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);</script>
-
+    <script src="https://unpkg.com/@saasquatch/squatch-js/dist/squatch.js"></script>
     <script src="//app-sjst.marketo.com/js/forms2/js/forms2.js"></script>
     <form id="mktoForm_1057"></form>
     <script>
@@ -56,7 +55,7 @@
             squatch.api().upsertUser(initObj).then(function(response) {
               user = response.user;
             }).catch(function(error){
-              console.log(error);
+              console.log("Squatch.js got set up and stuff, but there's an error in the upsert user call", error);
             })
           });
         });
