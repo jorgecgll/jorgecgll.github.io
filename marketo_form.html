@@ -19,10 +19,37 @@
         form.onSubmit(function(){
           //get the form field values
           var vals = form.vals();
-          //You may wish to call other function calls here, for example to fire google analytics tracking or the like.
-          //callSomeFunction(vals);
-          //We'll just alert them to show the principle.
-          alert("Submitted values: " + JSON.stringify(vals));
+          window.squatch.ready(function(){
+
+            console.log(vals.FirstName);
+            console.log(vals.LastName);
+            console.log(vals.Email);
+
+            //configure squatch.js for the tenant you are using
+            squatch.init({
+              tenantAlias: 'test_amtbexleynygg'
+            });
+
+            //object containing the init parameters for squatch.js
+            var initObj = {
+
+              //the object for the user you want to upsert
+              user: {
+                id: vals.Email,
+                accountId: vals.Email,
+                email: vals.Email,
+                firstName: vals.FirstName,
+                lastName: vals.LastName,
+                locale: 'en_US'
+              }
+            };
+
+            squatch.api().upsertUser(initObj).then(function(response) {
+              user = response.user;
+            }).catch(function(error){
+              console.log(error);
+            })
+          });
         });
       });
     </script>
