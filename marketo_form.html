@@ -52,7 +52,7 @@
             initObj.user.lastName = vals.LastName;
             initObj.user.locale = 'en_US';
             
-            console.log(initObj);
+            console.log(initObj.user);
 
             squatch.api().upsertUser(initObj).then(function(response) {
               user = response.user;
