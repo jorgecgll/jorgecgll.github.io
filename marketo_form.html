@@ -19,6 +19,13 @@
         form.onSubmit(function(){
           //get the form field values
           var vals = form.vals();
+          
+          console.log(vals);
+          
+          console.log(vals.FirstName);
+          console.log(vals.LastName);
+          console.log(vals.Email);
+          
           window.squatch.ready(function(){
 
             console.log(vals.FirstName);
