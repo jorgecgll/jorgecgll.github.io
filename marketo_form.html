@@ -42,7 +42,6 @@
 
               //the object for the user you want to upsert
               user: {
-                locale: 'en_US'
               }
             };
             initObj.user.id = vals.Email;
@@ -50,6 +49,7 @@
             initObj.user.email = vals.Email;
             initObj.user.firstName = vals.FirstName;
             initObj.user.lastName = vals.LastName;
+            initObj.user.locale = 'en_US';
             
             console.log(initObj);
 
