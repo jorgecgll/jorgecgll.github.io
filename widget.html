@@ -10,12 +10,14 @@
         squatch.widgets().upsertUser({
           
           user: {                               // Object (required)
-            id: 'abc',                      // String (required)
-            accountId: '123'
+            id: '123',                      // String (required)
+            accountId: 'abc',
+            firstName: 'Eduardo',
+            lastName: 'Rodriguez'
           },
           engagementMedium: 'EMBED',
           widgetType: 'REFERRER_WIDGET',
-          jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYWJjIiwiYWNjb3VudElkIjoiMTIzIn19.laH6t6cnEz3omOSCEDUaV0_obfidfPIPr7w_BH0WqLc'
+          jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMTIzIiwiYWNjb3VudElkIjoiYWJjIiwiZmlyc3ROYW1lIjoiRWR1YXJkbyIsImxhc3ROYW1lIjoiUm9kcmlndWV6In19.LjZVMU0EKe0ag442LOMRv0k6wJPxNiv8qCy_3GE5FWg'
         });
       });
     </script>
@@ -24,6 +26,7 @@
 
 <h1>Widget Page</h1>
   <br>
+  <input type="text" name="Coupon" class="testClass" value="" />
   <div id="squatchembed"></div>
 
 </body>
