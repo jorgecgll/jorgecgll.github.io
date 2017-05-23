@@ -14,6 +14,8 @@ var lock = new Auth0Lock(
 
 <button id="btn-login" onclick="lock.show();">Login</button>
 
+<div id="squatchembed"></div>
+
 <script>
 // Listening for the authenticated event
 lock.on("authenticated", function(authResult) {
@@ -44,6 +46,34 @@ function showLoggedIn() {
   var profile = JSON.parse(localStorage.getItem('profile'));
   document.getElementById('nick').textContent = profile.nickname;
   console.log(profile);
+  
+  window.squatch.ready(function(){
+    //configure squatch.js for the tenant you are using       
+    squatch.init({
+        tenantAlias: 'test_amtbexleynygg'
+    });
+
+    //object containing the init parameters for squatch.js
+    var initObj = {
+
+      //the object for the user you want to upsert
+      user: {                               
+        id: profile.user_id,                      
+        accountId: user_id,       
+        email: profile.email,                
+        firstName: profile.given_name,       
+        lastName: profile.family_name  
+      },
+      engagementMedium: 'EMBED',
+      widgetType: 'REFERRER_WIDGET'
+    };
+
+    squatch.widgets().upsertUser(initObj).then(function(response) {
+      user = response.user;
+    }).catch(function(error){
+      console.log(error);
+    }); 
+  });
 }
 </script>
 
