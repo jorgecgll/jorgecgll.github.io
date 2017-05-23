@@ -8,7 +8,11 @@ var lock = new Auth0Lock(
   'hw43NtjyIRysvV1IZ52WwlIJEjbQGPBe',
   'saasquatch.auth0.com'
 );
+</script>
 
+<button id="btn-login" onclick="lock.show();">Login</button>
+
+<script>
 // Listening for the authenticated event
 lock.on("authenticated", function(authResult) {
   // Use the token in authResult to getUserInfo() and save it to localStorage
@@ -40,4 +44,3 @@ function showLoggedIn() {
 }
 </script>
 
-<button id="btn-login" onclick="lock.show();">Login</button>
