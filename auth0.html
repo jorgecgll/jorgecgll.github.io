@@ -48,6 +48,7 @@ function showLoggedIn() {
   console.log(profile);
   
   window.squatch.ready(function(){
+
     //configure squatch.js for the tenant you are using       
     squatch.init({
         tenantAlias: 'test_amtbexleynygg'
@@ -58,17 +59,15 @@ function showLoggedIn() {
 
       //the object for the user you want to upsert
       user: {                               
-        id: profile.user_id,                      
-        accountId: profile.user_id,       
-        email: profile.email,                
-        firstName: profile.given_name,       
-        lastName: profile.family_name  
+        id: 'abc_123',                      
+        accountId: 'abc_123',       
+        email: 'john@example.com',                
+        firstName: 'John',       
+        lastName: 'Doe' 
       },
       engagementMedium: 'EMBED',
       widgetType: 'REFERRER_WIDGET'
     };
-    
-    console.log(initObj);
 
     squatch.widgets().upsertUser(initObj).then(function(response) {
       user = response.user;
@@ -76,6 +75,8 @@ function showLoggedIn() {
       console.log(error);
     }); 
   });
+  
+  
 }
 </script>
 
