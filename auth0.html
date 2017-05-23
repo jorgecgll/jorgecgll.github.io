@@ -67,6 +67,8 @@ function showLoggedIn() {
       engagementMedium: 'EMBED',
       widgetType: 'REFERRER_WIDGET'
     };
+    
+    console.log(initObj);
 
     squatch.widgets().upsertUser(initObj).then(function(response) {
       user = response.user;
