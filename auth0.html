@@ -59,11 +59,11 @@ function showLoggedIn() {
 
       //the object for the user you want to upsert
       user: {                               
-        id: 'abc_123',                      
-        accountId: 'abc_123',       
-        email: 'john@example.com',                
-        firstName: 'John',       
-        lastName: 'Doe' 
+        id: profile.user_id,                      
+        accountId: profile.user_id,       
+        email: profile.email,                
+        firstName: profile.given_name,       
+        lastName: profile.family_name 
       },
       engagementMedium: 'EMBED',
       widgetType: 'REFERRER_WIDGET'
