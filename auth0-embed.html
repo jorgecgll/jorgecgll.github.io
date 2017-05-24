@@ -1,0 +1,81 @@
+<h2>Welcome <span id="nick" class="nickname"></span></h2>
+
+<script src="https://cdn.auth0.com/js/lock/10.15/lock.min.js"></script>
+
+<script>!function(a,b){a("squatch","https://d2rcp9ak152ke1.cloudfront.net/assets/javascripts/v2/squatch.min.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);</script>
+
+<script>
+// Initiating our Auth0Lock
+var lock = new Auth0Lock(
+  'hw43NtjyIRysvV1IZ52WwlIJEjbQGPBe',
+  'saasquatch.auth0.com'
+);
+
+// render in `#hiw-login-container` element
+lock.show({
+  container: 'hiw-login-container'
+});
+
+</script>
+
+<div id="hiw-login-container"></div>
+
+<div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;">
+    embedded area
+</div>
+
+<div id="squatchembed"></div>
+
+<script>
+// Listening for the authenticated event
+lock.on("authenticated", function(authResult) {
+  // Use the token in authResult to getUserInfo() and save it to localStorage
+  lock.getUserInfo(authResult.accessToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+    localStorage.setItem('accessToken', authResult.accessToken);
+    localStorage.setItem('profile', JSON.stringify(profile));
+  });
+});
+
+// Verify that there's a token in localStorage
+var token = localStorage.getItem('accessToken');
+if (token) {
+  showLoggedIn();
+}
+// Display the user's profile
+function showLoggedIn() {
+  var profile = JSON.parse(localStorage.getItem('profile'));
+  document.getElementById('nick').textContent = profile.nickname;
+
+  console.log(profile);
+  
+  window.squatch.ready(function(){
+    //configure squatch.js for the tenant you are using       
+    squatch.init({
+        tenantAlias: 'test_amtbexleynygg'
+    });
+    //object containing the init parameters for squatch.js
+    var initObj = {
+      //the object for the user you want to upsert
+      user: {                               
+        id: profile.user_id,                      
+        accountId: profile.user_id,       
+        email: profile.email,                
+        firstName: profile.given_name,       
+        lastName: profile.family_name 
+      },
+      engagementMedium: 'EMBED',
+      widgetType: 'REFERRER_WIDGET'
+    };
+    squatch.widgets().upsertUser(initObj).then(function(response) {
+      user = response.user;
+    }).catch(function(error){
+      console.log(error);
+    }); 
+  });
+  
+}
+</script>
