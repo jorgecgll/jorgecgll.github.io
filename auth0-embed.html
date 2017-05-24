@@ -37,14 +37,15 @@ lock.on("authenticated", function(authResult) {
     }
     localStorage.setItem('accessToken', authResult.accessToken);
     localStorage.setItem('profile', JSON.stringify(profile));
+
+    // Verify that there's a token in localStorage
+    var token = localStorage.getItem('accessToken');
+    if (token) {
+      showLoggedIn();
+    }
   });
 });
 
-// Verify that there's a token in localStorage
-var token = localStorage.getItem('accessToken');
-if (token) {
-  showLoggedIn();
-}
 // Display the user's profile
 function showLoggedIn() {
   var profile = JSON.parse(localStorage.getItem('profile'));
