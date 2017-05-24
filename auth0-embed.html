@@ -5,22 +5,22 @@
 <script>!function(a,b){a("squatch","https://d2rcp9ak152ke1.cloudfront.net/assets/javascripts/v2/squatch.min.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);</script>
 
 <style>
-#hiw-login-container-1 { 
+#firstname { 
     width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;
 }
 </style>
 
 <script>
-// Initiating our Auth0Lock
-var lock = new Auth0Lock(
-  'hw43NtjyIRysvV1IZ52WwlIJEjbQGPBe',
-  'saasquatch.auth0.com'
-);
 
-// render in `#hiw-login-container` element
-lock.show({
+var options = {
   container: 'hiw-login-container'
-});
+};
+
+// Initiating our Auth0Lock
+var lock = new Auth0Lock('hw43NtjyIRysvV1IZ52WwlIJEjbQGPBe', 'saasquatch.auth0.com', options);
+
+// render
+lock.show();
 
 </script>
 
