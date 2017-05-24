@@ -44,6 +44,8 @@ lock.on("authenticated", function(authResult) {
 
 // Display the user's profile
 function showLoggedIn() {
+  document.getElementById("hiw-login-container").style.display = "none";
+  
   var profile = JSON.parse(localStorage.getItem('profile'));
   document.getElementById('nick').textContent = profile.nickname;
 
