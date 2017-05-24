@@ -13,11 +13,6 @@ var options = {
 // Initiating our Auth0Lock
 var lock = new Auth0Lock('hw43NtjyIRysvV1IZ52WwlIJEjbQGPBe', 'saasquatch.auth0.com', options);
 
-var check_token = localStorage.getItem('accessToken');
-if (check_token){
-  document.getElementById("hiw-login-container").style.display = "none";
-}
-
 // render
 lock.show();
 
