@@ -13,7 +13,8 @@ var options = {
 // Initiating our Auth0Lock
 var lock = new Auth0Lock('hw43NtjyIRysvV1IZ52WwlIJEjbQGPBe', 'saasquatch.auth0.com', options);
 
-
+// render
+lock.show();
 
 </script>
 
@@ -37,10 +38,7 @@ lock.on("authenticated", function(authResult) {
     var token = localStorage.getItem('accessToken');
     if (token) {
       showLoggedIn();
-    }else {
-      // render
-      lock.show();
-    };
+    }
   });
 });
 
