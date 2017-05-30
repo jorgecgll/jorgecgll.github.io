@@ -2,26 +2,23 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>!function(a,b){a("squatch","/squatch.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready = c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);
-      
-      squatch.ready(function(){
-        squatch.init({tenantAlias:"test_aggrb70ymy559", domain: "https://staging.referralsaasquatch.com"});
-        
-        squatch.widgets().upsertUser({
-          
-          user: {                               // Object (required)
-            id: '123',                      // String (required)
-            accountId: 'abc',
-            firstName: 'Eduardo',
-            lastName: 'Rodriguez'
-          },
-          engagementMedium: 'EMBED',
-          widgetType: 'REFERRER_WIDGET',
-          jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMTIzIiwiYWNjb3VudElkIjoiYWJjIiwiZmlyc3ROYW1lIjoiRWR1YXJkbyIsImxhc3ROYW1lIjoiUm9kcmlndWV6In19.LjZVMU0EKe0ag442LOMRv0k6wJPxNiv8qCy_3GE5FWg'
-        }).then(function(res){
-          console.log(res);
-        });;
-      });
+    <script>var _sqh = _sqh || [];
+
+// Push user details for a user who is logged in to your system
+_sqh.push(['init', {
+   tenant_alias: 'test_an5twmhhhw0aq', // Use the tenant alias.
+   account_id: 'abc_123', // Replace with UID. 
+   payment_provider_id: null, // replace with Payment Provider ID if available, otherwise, and for API programs, use null
+   user_id: 'abc_123', // Replace with UID
+   email: 'john@example.com', // Replace with user’s email address 
+   first_name: 'John', // Replace with first name if known.
+   last_name: 'Doe', // Replace with last name if known. 
+   checksum: 'VumizklnxWzkVgkEo0gKIj5BamH8xxzbtLrzH47yc9c=' // Checksums are currently turned on. Documentation on usage, and how to turn checksum off, can be found here
+
+}]);
+
+// Include squatch.js
+(function(){function l(){var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src=location.protocol+"//cdn.rawgit.com/saasquatch/squatch-js/v1/dist/squatch.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}if(window.attachEvent){window.attachEvent("onload",l)}else{window.addEventListener("load",l,false)}})();
     </script>
   </head>
 <body>
@@ -29,6 +26,7 @@
 <h1>Widget Page</h1>
   <br>
   <input type="text" name="Coupon" class="testClass" value="" />
+  <div class="squatchpop"></div>
   <div id="squatchembed"></div>
 
 </body>
