@@ -25,7 +25,7 @@ window.squatch.ready(function(){
     widgetType: 'REFERRER_WIDGET'
   };
 
-  squatch.widgets().cookieUser(initObj).then(function(response) {
+  squatch.widgets().createCookieUser(initObj).then(function(response) {
     user = response.user;
   }).catch(function(error){
     console.log(error);
