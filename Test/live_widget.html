@@ -16,26 +16,16 @@ window.squatch.ready(function(){
 
   //configure squatch.js for the tenant you are using       
   squatch.init({
-      tenantAlias: 'anfrh71ssoc2c'
+      tenantAlias: 'test_afteq7z3hvjm3'
   });
 
   //object containing the init parameters for squatch.js
   var initObj = {
-
-    //the object for the user you want to upsert
-    user: {                               
-      id: 'abc_123',                      
-      accountId: 'abc_123',       
-      email: 'john@example.com',                
-      firstName: 'John',       
-      lastName: 'Doe'  
-    },
     engagementMedium: 'EMBED',
-    widgetType: 'REFERRER_WIDGET',
-        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYWJjXzEyMyIsImFjY291bnRJZCI6ImFiY18xMjMiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UifX0.Y9Gefy5iwKjj7O3cDN9AEo3HHS5G1Tn740ZWRVmlnvs'
+    widgetType: 'REFERRER_WIDGET'
   };
 
-  squatch.widgets().upsertUser(initObj).then(function(response) {
+  squatch.widgets().cookieUser(initObj).then(function(response) {
     user = response.user;
   }).catch(function(error){
     console.log(error);
