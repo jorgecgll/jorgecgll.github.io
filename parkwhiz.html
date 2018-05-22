@@ -1,0 +1,31 @@
+<script>
+var _sqh = _sqh || [];
+
+// Push user details for a user who is logged in to your system
+_sqh.push(['init', {
+   tenant_alias: 'test_adgxvcqfnjoji', // Use the tenant alias. (Prefilled with the test tenant)
+   account_id: 'abc_123', // Replace with UID
+   payment_provider_id: null, 
+   user_id: 'abc_123', // Replace with UID
+   account_status: 'PAID', // Push the current account status for each user
+   email: 'erik@saasquat.ch', // Replace with user’s email address 
+   first_name: 'Erik', // Replace with first name if known.
+   last_name: 'Aalbers', // Replace with last name if known. 
+   mode: 'EMBED', // This forces the widget to load inside the div with the id `squatchembed`.
+   checksum: 'doJsIBz53NAEhCJbDbp7eDz/0vviV6jdvbWOjakhh2Q=' // Checksums are currently turned on. Documentation on usage, and how to turn checksum off, can be found here
+
+}]);
+
+// Include squatch.js
+(function(){function l(){var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src=location.protocol+"//d2rcp9ak152ke1.cloudfront.net/assets/javascripts/squatch.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}if(window.attachEvent){window.attachEvent("onload",l)}else{window.addEventListener("load",l,false)}})();
+
+</script>
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="squatchembed"></div>
+
+</body>
+</html>
+
