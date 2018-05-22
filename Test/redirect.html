@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test Redirect</h1>
+
+<script> 
+
+//pickup arguements from URL
+var getQueryString = function ( field, url ) {
+    var href = url ? url : window.location.href;
+    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+    var string = reg.exec(href);
+    return string ? string[1] : null;
+};
+
+accountId = getQueryString('virtuagym-member-id');
+
+url = 'https://app.referralsaasquatch.com/a/test_at4v7hrin7o83/widgets/mobilewidget?userId=' + accountId +'&accountId=' + accountId +'&paymentProviderId=null'
+
+window.location.href = url;
+
+</script>
+  
+</body>
+</html>
