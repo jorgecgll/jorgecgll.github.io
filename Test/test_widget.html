@@ -16,7 +16,7 @@ window.squatch.ready(function(){
 
   //configure squatch.js for the tenant you are using       
   squatch.init({
-      tenantAlias: 'test_avtj2evrgppmx'
+      tenantAlias: 'test_atzqd37hvovdf'
   });
 
   //object containing the init parameters for squatch.js
@@ -31,8 +31,7 @@ window.squatch.ready(function(){
       lastName: 'Doe'  
     },
     engagementMedium: 'EMBED',
-    widgetType: 'REFERRER_WIDGET',
-        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYWJjXzEyMyIsImFjY291bnRJZCI6ImFiY18xMjMiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UifX0.coreMhsHe7XZuQ_pa-TvKKUdi4uTPqH4YZlt1VjYkVw'
+    widgetType: 'REFERRER_WIDGET'
   };
 
   squatch.widgets().upsertUser(initObj).then(function(response) {
