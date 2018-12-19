@@ -12,7 +12,7 @@ window.squatch.ready(function(){
 
   //configure squatch.js for the tenant you are using       
   squatch.init({
-      tenantAlias: 'test_abqe06hafivyh'
+      tenantAlias: 'test_axkthdflk7ebr'
   });
 
   //object containing the init parameters for squatch.js
@@ -24,10 +24,12 @@ window.squatch.ready(function(){
       accountId: 'abc_123',       
       email: 'john@example.com',                
       firstName: 'John',       
-      lastName: 'Doe'  
+      lastName: 'Doe',
+      referable: false
     },
     engagementMedium: 'POPUP',
-    widgetType: 'REFERRER_WIDGET'
+    widgetType: 'p/first-appointment-booking/w/referrerWidget',
+    jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYWJjXzEyMyIsImFjY291bnRJZCI6ImFiY18xMjMiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UiLCJyZWZlcmFibGUiOiJmYWxzZSJ9fQ.dCYz2sTpmKsFFx5GtXBEcMbaMzBsR5A7laRIUZ0gpDs'
   };
 
   squatch.widgets().upsertUser(initObj).then(function(response) {
