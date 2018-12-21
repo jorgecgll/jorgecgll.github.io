@@ -27,9 +27,7 @@
     Widget ID: <input type="text" id="widgetId" name="widgetId"><br><br>
     No Widget?<input type="checkbox" id="isTrackingScript" name="isTrackingScript" value=isTrackingScript> <br><br>
     
-    User Object: <!input type="text" id="userObject" name="userObject"><br><br>
-    User ID: <input type="text" id="userId" name="userId"><br><br>
-    Account ID: <input type="text" id="accountId" name="accountId"><br><br>
+    User Object: <textarea rows="8" cols="50" id="userObject" name="userObject"></textarea><br><br>
     
     <input type="button" onclick="submitForm()" value="Submit form">
     
@@ -85,16 +83,19 @@ for (i = 0; i < acc.length; i++) {
 
 
 function submitForm(){
-    // var userObjectString = document.forms["widgetForm"]["userObject"].value;
-    // console.log(userObjectString);
-    // console.log(JSON.parse(userObjectString));
-    // var serializedUserObject = serialize(JSON.parse(userObjectString));
+    var userObjectString = document.forms["widgetForm"]["userObject"].value;
+    console.log(userObjectString);
     
-    // console.log(serializedUserObject);
+    var jsonUserObject = JSON.parse(userObjectString);
     
-    // document.forms["widgetForm"]["userObject"].value = serializedUserObject;
+    //TODO: add in try catch check for whether the user object is valid JSON
+    console.log(jsonUserObject);
+    console.log(JSON.stringify(jsonUserObject))
+    //console.log(encodeURIComponent(userObjectString));
+    //userObjectString = encodeURIComponent(JSON.stringify(jsonUserObject));
+    document.forms["widgetForm"]["userObject"].value = JSON.stringify(jsonUserObject);
     
-    
+    //console.log(document.forms["widgetForm"]["userObject"].value);
     
     document.getElementById("widgetForm").submit();
 }
@@ -133,13 +134,19 @@ var temp = document.getElementById("widgetId");
 var widgetId = getQueryString('widgetId');
 temp.value = widgetId;
 
-var temp = document.getElementById("userId");
-var userId = decodeURIComponent(getQueryString('userId'));
-temp.value = userId;
+var temp = document.getElementById("userObject");
+var userObject = getQueryString('userObject');
 
-var temp = document.getElementById("accountId");
-var accountId = decodeURIComponent(getQueryString('accountId'));
-temp.value = accountId;
+
+
+//console.log(getQueryString('userObject'));
+console.log(userObject);
+
+userObject = JSON.parse(decodeURIComponent(userObject));
+console.log(userObject);
+temp.value = JSON.stringify(userObject, null, 4);
+console.log(temp.value);
+
 
 var isTrackingScript = getQueryString('isTrackingScript');
 if (isTrackingScript == "isTrackingScript"){
@@ -170,25 +177,7 @@ window.squatch.ready(function(){
       tenantAlias: tenantAlias
   });
 
-  //object containing the init parameters for squatch.js
-//   var initObj = {
-
-//     //the object for the user you want to upsert
-//     user: {                               
-//       id: 'abc_123',                      
-//       accountId: 'abc_123',       
-//       email: 'john@example.com',                
-//       firstName: 'John',       
-//       lastName: 'Doe'  
-//     }
-//   };
-
-    var initObj = {};
-    
-    initObj["user"] = {};
-    initObj["user"]["id"] = userId;
-    initObj["user"]["accountId"] = userId;
-    
+    var initObj = userObject;
   
   if(jwt){
       initObj["jwt"] = jwt;
