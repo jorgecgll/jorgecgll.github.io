@@ -88,11 +88,11 @@ var widgetId = getQueryString('widgetId');
 temp.value = widgetId;
 
 var temp = document.getElementById("userId");
-var userId = getQueryString('userId');
+var userId = decodeURIComponent(getQueryString('userId'));
 temp.value = userId;
 
 var temp = document.getElementById("accountId");
-var accountId = getQueryString('accountId');
+var accountId = decodeURIComponent(getQueryString('accountId'));
 temp.value = accountId;
 
 var isTrackingScript = getQueryString('isTrackingScript');
