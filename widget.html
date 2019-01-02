@@ -3,10 +3,28 @@
 
 <head>
 <script>
+    //pickup arguements from URL
+    var getQueryString = function ( field, url ) {
+        var href = url ? url : window.location.href;
+        var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+        var string = reg.exec(href);
+        return string ? string[1] : null;
+    };
+    
     var meta = document.createElement('meta');
-    meta.name = "viewport";
-    meta.content = "width=device-width, initial-scale=1";
-    document.getElementsByTagName('head')[0].appendChild(meta);
+    var deviceWidthMeta = getQueryString('deviceWidthMeta');
+    
+    if (deviceWidthMeta == "deviceWidthMeta"){
+    
+      meta.name = "viewport";
+      meta.content = "width=device-width, initial-scale=1";
+      document.getElementsByTagName('head')[0].appendChild(meta);
+      
+    }
+    
+    
+    
+    
 </script>
 </head>
     
@@ -27,13 +45,14 @@
     Program ID: <input type="text" id="programId" name="programId"><br><br>
     Widget ID: <input type="text" id="widgetId" name="widgetId"><br><br>
     No Widget?<input type="checkbox" id="isTrackingScript" name="isTrackingScript" value=isTrackingScript> <br><br>
+    Include meta tag for mobile scaling? <input type="checkbox" id="deviceWidthMeta" name="deviceWidthMeta" value=deviceWidthMeta> <br><br>
     
     User Object: <textarea rows="8" cols="50" id="userObject" name="userObject"></textarea><br><br>
     
     <input type="button" onclick="submitForm()" value="Submit form">
     
 </form>
-<br><br><hr><br><br>
+<br><br><hr></div><br><br>
 
 </body>
 </html>
@@ -125,13 +144,7 @@ function submitForm(){
 }
 
 
-//pickup arguements from URL
-var getQueryString = function ( field, url ) {
-    var href = url ? url : window.location.href;
-    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-    var string = reg.exec(href);
-    return string ? string[1] : null;
-};
+
 
 var temp = document.getElementById("tenantAlias");
 var tenantAlias = getQueryString('tenantAlias');
@@ -172,7 +185,14 @@ if (isTrackingScript == "isTrackingScript"){
     document.getElementById("isTrackingScript").checked = true;
 }
 
+var isTrackingScript = getQueryString('isTrackingScript');
+if (isTrackingScript == "isTrackingScript"){
+    document.getElementById("isTrackingScript").checked = true;
+}
 
+if (deviceWidthMeta == "deviceWidthMeta"){
+  document.getElementById("deviceWidthMeta").checked = true;
+}
 
 if(engagementMedium == "EMBED"){
     var embedDiv = document.createElement("div"); 
