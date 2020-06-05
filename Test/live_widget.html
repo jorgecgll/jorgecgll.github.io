@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
-<h1>Widget Page</h1>
-  
-<div id="squatchembed"></div>
+  <h1>Testing A COOKIE</h1>
 
-<script>
-!function(a,b){a("squatch","https://d2rcp9ak152ke1.cloudfront.net/assets/javascripts/v2/squatch.min.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);
+  <div id="squatchembed"></div>
 
-window.squatch.ready(function(){
+  <script>
+    !function (a, b) { a("squatch", "./squatch.min.js", b) }(function (a, b, c) { var d, e, f; c["_" + a] = {}, c[a] = {}, c[a].ready = function (b) { c["_" + a].ready = c["_" + a].ready || []; c["_" + a].ready.push(b); }, e = document.createElement("script"), e.async = 1, e.src = b, f = document.getElementsByTagName("script")[0], f.parentNode.insertBefore(e, f) }, this);
 
-  //configure squatch.js for the tenant you are using       
-  squatch.init({
-      tenantAlias: 'test_afteq7z3hvjm3'
-  });
+    window.squatch.ready(function () {
 
-  //object containing the init parameters for squatch.js
-  var initObj = {
-    engagementMedium: 'EMBED',
-    widgetType: 'REFERRER_WIDGET'
-  };
+      console.log('squatch', squatch);
 
-  squatch.widgets().createCookieUser(initObj).then(function(response) {
-    user = response.user;
-  }).catch(function(error){
-    console.log(error);
-  }); 
-});
-</script>
+      //configure squatch.js for the tenant you are using       
+      squatch.init({
+        tenantAlias: 'test_a8b41jotf8a1v',
+        domain: "https://staging.referralsaasquatch.com",
+        debug: true
+      });
+
+      //object containing the init parameters for squatch.js
+      var initObj = {
+        engagementMedium: 'EMBED',
+        widgetType: 'REFERRER_WIDGET',
+        user: {
+          id: 'frog',
+          accountId: 'frog'
+        },
+        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZnJvZyIsImFjY291bnRJZCI6ImZyb2cifX0.V4DVS6StGmk9CxqodHF3-ijqasU3_I1K1QFenrjSDdY",
+        // cookie: "what is it"
+      };
+
+      squatch.widgets().upsertUser(initObj).then(function (response) {
+        user = response.user;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    });
+  </script>
 
 </body>
+
 </html>
