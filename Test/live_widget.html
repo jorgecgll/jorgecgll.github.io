@@ -43,7 +43,11 @@
       var element = document.getElementById("autofill")
 
       squatch.api().squatchReferralCookie().then(function (response) {
-        element.value = response.code;
+        console.log('res ', response);
+        if(response.codes) {
+          element.value = response.codes["referral-yeah"];
+        }
+        
       });
 
       squatch.widgets().upsertUser(initObj).then(function (response) {
