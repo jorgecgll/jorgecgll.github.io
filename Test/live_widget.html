@@ -18,7 +18,7 @@
 
       //configure squatch.js for the tenant you are using       
       squatch.init({
-        tenantAlias: 'ajhzj2kx99d1d',
+        tenantAlias: 'test_a5pf1cc9tijke',
         debug: true
       });
 
@@ -27,11 +27,11 @@
         engagementMedium: 'EMBED',
         widgetType: 'REFERRER_WIDGET',
         user: {
-          id: '5f4732f65481e367cd724ec413fd08b0',
-          accountId: '5f4732f65481e367cd724ec413fd08b0'
+          id: '3ad06ca7a844c02846c35a841703d767',
+          accountId: '3ad06ca7a844c02846c35a841703d767'
         },
         // no expiry
-        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NzMyZjY1NDgxZTM2N2NkNzI0ZWM0MTNmZDA4YjAiLCJhY2NvdW50SWQiOiI1ZjQ3MzJmNjU0ODFlMzY3Y2Q3MjRlYzQxM2ZkMDhiMCJ9fQ.cBNt9EAX-P-S7ccIZXOQDEcj5oirWDiLNs3HcCDYCUk",
+        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiM2FkMDZjYTdhODQ0YzAyODQ2YzM1YTg0MTcwM2Q3NjciLCJhY2NvdW50SWQiOiIzYWQwNmNhN2E4NDRjMDI4NDZjMzVhODQxNzAzZDc2NyJ9fQ.YAf3NZEo81jONIGUbQlpG1xPFHk6Sg0VsprXMyTP01U",
       };
 
       squatch.widgets().upsertUser(initObj).then(function (response) {
