@@ -1293,7 +1293,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      _log('Rendering Widget...');
 	      if (!response) throw new Error('Unable to get a response');
-	      if (!response.jsOptions) throw new Error('Missing jsOptions in response');
+	      // if (!response.jsOptions) throw new Error('Missing jsOptions in response');
 
 	      var widget = void 0;
 	      var displayOnLoad = false;
