@@ -29,10 +29,13 @@
         widgetType: 'p/new-referral/w/referrerWidget',
         "user": {
           "id": "123456",
-          "accountId": "123456"
+          "accountId": "123456",
+          "email":"sam123@test.ca",
+          "firstName":"new",
+          "lastName":"guy"
         },
         // no expiry
-        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMTIzNDU2IiwiYWNjb3VudElkIjoiMTIzNDU2In19.LvO8h8kt-crZneXXhvQiXSQL2IktnTWtJIVWkaPJV4c",
+        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMTIzNDU2IiwiYWNjb3VudElkIjoiMTIzNDU2IiwiZW1haWwiOiJzYW0xMjNAdGVzdC5jYSIsImZpcnN0TmFtZSI6Im5ldyIsImxhc3ROYW1lIjoiZ3V5In19.oRL72sN_3MVeW-rDdd32U6riMUH7RgC-mcdbFHoUTPA",
       };
 
       squatch.widgets().upsertUser(initObj).then(function (response) {
