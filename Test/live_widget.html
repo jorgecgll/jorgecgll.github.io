@@ -7,12 +7,12 @@
 
 <body>
 
-  <h1>Testing A COOKIE</h1>
-
-
-
+  <h1>Testing A COOKIE</h1>  
   <script>
-    !function (a, b) { a("squatch", "./squatch.min.js", b) }(function (a, b, c) { var d, e, f; c["_" + a] = {}, c[a] = {}, c[a].ready = function (b) { c["_" + a].ready = c["_" + a].ready || []; c["_" + a].ready.push(b); }, e = document.createElement("script"), e.async = 1, e.src = b, f = document.getElementsByTagName("script")[0], f.parentNode.insertBefore(e, f) }, this);
+    !function (a, b) { a("squatch", 
+    "./squatch.min.js",
+    // "http://localhost:5000/squatch.min.js",
+     b) }(function (a, b, c) { var d, e, f; c["_" + a] = {}, c[a] = {}, c[a].ready = function (b) { c["_" + a].ready = c["_" + a].ready || []; c["_" + a].ready.push(b); }, e = document.createElement("script"), e.async = 1, e.src = b, f = document.getElementsByTagName("script")[0], f.parentNode.insertBefore(e, f) }, this);
 
     window.squatch.ready(function () {
 
@@ -45,12 +45,37 @@
       });
     });
   </script>
+<script type="text/javascript">
+  window.widgetIdent = {"programId":"new-referral","userId":"123456","accountId":"123456","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMTIzNDU2IiwiYWNjb3VudElkIjoiMTIzNDU2IiwiZW1haWwiOiJzYW0xMjNAdGVzdC5jYSIsImZpcnN0TmFtZSI6Im5ldyIsImxhc3ROYW1lIjoiZ3V5In19.oRL72sN_3MVeW-rDdd32U6riMUH7RgC-mcdbFHoUTPA","tenantAlias":"test_a8b41jotf8a1v","engagementMedium":"EMBED","appDomain":"https://staging.referralsaasquatch.com"};
+</script>
+<script src="https://fast-staging.ssqt.io/npm/@samsquatch/vanilla-components@1.2.0-30/dist/widget-components/entrypoint.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fast-staging.ssqt.io/npm/@saasquatch/vanilla-components-assets@0.0.12/icons.css">
+<script src="https://fast-staging.ssqt.io/npm/@samsquatch/alteryx-components@0.0.46/dist/components-starter/entrypoint.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fast-staging.ssqt.io/npm/@samsquatch/alteryx-components-assets@0.0.9-1/style.css">
+<script src="https://fast-staging.ssqt.io/npm/@elastic/apm-rum@4.0.1/dist/bundles/elastic-apm-rum.umd.min.js" crossorigin=""></script>  
+<script>
+  window.apm = elasticApm.init({
+    serviceName: 'programwidget-staging',
+    serverUrl: 'https://1c9081d2ac2d43548254f581dca2dbee.apm.us-central1.gcp.cloud.es.io:443',
+    active: Math.random() < 0.1
+  })
+  function doSomething(e){
+    // document.dispatchEvent("altx-navigate");
+    console.log("my event listeners!", )
+    const el = document.querySelector("#squatchembed > div > navigation-container")
+    const event = new CustomEvent('altx-navigate', { detail: "forms" });
+    el.dispatchEvent(event);
+    // document.dispatchEvent(event);
+    console.log("yup!");
+    // event.emit("forms")
+  }
+</script>
 
 
   <div id="squatchembed"></div>
 
   
-
+  <div><button onclick="doSomething()">Click me!</button></div>
 </body>
 
 </html>
